@@ -1,40 +1,40 @@
-import React, { useState, useEffect, memo } from 'react';
-import { getStory } from '../services/HackerNewsApi';
-import { mapTime } from '../utils/ConvertTime';
+import React, { useState, useEffect, memo } from "react";
+import { getStory } from "../services/HackerNewsApi";
+import { mapTime } from "../utils/ConvertTime";
 import {
-    StoryWrapper,
-    StoryTitle,
-    StoryMeta,
-    StoryMetaElement,
-  } from '../styles/StoryStyles'
+  StoryWrapper,
+  StoryTitle,
+  StoryBody,
+  StoryBodyElement,
+} from "../styles/StoryStyles";
+import {Link} from "react-router-dom";
 
-const Story = memo(function Story({ storyId }) {
+const Story = memo(function Story({ storyId,storyNumber }) {
   const [story, setStory] = useState({});
 
   useEffect(() => {
-    getStory(storyId).then(data => data && data.url && setStory(data));
+    getStory(storyId).then((data) => data && data.url && setStory(data));
   }, [storyId]);
 
   return story && story.url ? (
     <>
-     <StoryWrapper>
-     <StoryTitle>
-        <a href={story.url}>{story.title}</a>
-      </StoryTitle>
-      <StoryMeta>
-        <span data-testid="story-by">
-          <StoryMetaElement color="#000">By:</StoryMetaElement> {story.by}
-        </span>
-        <span data-testid="story-time">
-          <StoryMetaElement color="#000">Posted:</StoryMetaElement> {` `}
-          {mapTime(story.time)}
-        </span>
-      </StoryMeta>
-        </StoryWrapper>
-     
+      <StoryWrapper>
+        <StoryTitle>
+            <Link to="/">{storyNumber ?storyNumber +'. '+ story.title : story.title}</Link>
+        </StoryTitle>
+        <StoryBody>
+          <StoryBodyElement>{story.score} points</StoryBodyElement>
+          <StoryBodyElement>
+            <Link to="/"> {story.by}</Link>
+          </StoryBodyElement>
+          <StoryBodyElement>{mapTime(story.time)} ago</StoryBodyElement>
+          <StoryBodyElement>
+            <Link to={`/comments/${story.id}`}> {story.kids && story.kids.length} comments </Link>
+          </StoryBodyElement>
+        </StoryBody>
+      </StoryWrapper>
     </>
   ) : null;
-  
 });
 
 export default Story;
