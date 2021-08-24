@@ -4,17 +4,13 @@ import styled from 'styled-components';
 export const StoryWrapper = styled.section`
   padding-top: 10px;
   margin-bottom: 20px;
-  border-top: 1px solid #cccccc;
-  &:first-of-type {
-    border-top: 0;
-  }
-  &:last-of-type {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
+  color: #37474f;
+  font-size: 16px;
+  line-height: 24px;
+  
 `;
 
-export const StoryTitle = styled.h1`
+export const StoryTitle = styled.h2`
   margin-bottom: 5px;
   font-size: 18px;
   line-height: 1.8;
@@ -28,21 +24,17 @@ export const StoryTitle = styled.h1`
   }
 `;
 
-export const StoryMeta = styled.div`
+export const StoryBody = styled.div`
   font-style: italic;
-  > span:first-child {
-    margin-right: 10px;
-  }
-  > span:not(:first-child):before {
-    content: '•'
-    margin: 0 7px;
-  }
-  .story__meta-bold {
-    font-weight: bold;
-  }
+ 
 `;
 
-export const StoryMetaElement = styled.span`
-  font-weight: bold;
-  color: ${props => props.color};
+export const StoryBodyElement = styled.span`
+margin: 0 8px 0 0;
+font-size:10px;
+a{
+    color: #0277bd;
+    -webkit-text-decoration: none;
+    text-decoration: none
+}
 `;

@@ -1,28 +1,15 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
-  html {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    -webkit-box-sizing: inherit;
-            box-sizing: inherit;
-  }
-  body {
+export const StoriesContainerTitle = styled.h1`
+  font-size: 18px;
     margin: 0;
-    padding: 0;
-    line-height: 1;
-    color: #202020;
-    background-color: #fafafe;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-  }
-  ul {
-    margin: 0;
-    padding: 0;
-  }
+    line-height: 56px;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    color: #37474f;
+    font-weight:500;
 `;
+
 
 export const StoriesContainerWrapper = styled.main`
   max-width: 1140px;
@@ -38,7 +25,7 @@ background: #f4511e;
 border-radius: 4px;
 padding: 0 32px;
 display: inline-block;
-margin: 16px 0 40px 32px;
+margin: 25px 0 40px -5px;
 height: 40px;
 line-height: 40px;
 color: #FFFFFF;
