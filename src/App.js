@@ -1,6 +1,12 @@
 import React from 'react';
-import { StoriesContainer } from './containers/StoriesContainer';
+import {
+  BrowserRouter as Router,
+  } from "react-router-dom";
+import Routes from './routes/Routes';
 
-export const App = () => <StoriesContainer />;
+export const App = () =>   
+ <Router>
+   <Routes/>
+</Router>;
 
 export default App;
