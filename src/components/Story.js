@@ -9,7 +9,7 @@ import {
 } from "../styles/StoryStyles";
 import {Link} from "react-router-dom";
 
-const Story = memo(function Story({ storyId,storyNumber }) {
+const Story = ({ storyId,storyNumber })=> {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -35,6 +35,7 @@ const Story = memo(function Story({ storyId,storyNumber }) {
       </StoryWrapper>
     </>
   ) : null;
-});
+}
 
-export default Story;
+
+export default memo(Story);
