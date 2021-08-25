@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CommentsContainerWrapper = styled.main`
   max-width: 1140px;

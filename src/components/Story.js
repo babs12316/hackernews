@@ -7,9 +7,9 @@ import {
   StoryBody,
   StoryBodyElement,
 } from "../styles/StoryStyles";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Story = ({ storyId,storyNumber })=> {
+const Story = ({ storyId, storyNumber }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -20,7 +20,9 @@ const Story = ({ storyId,storyNumber })=> {
     <>
       <StoryWrapper>
         <StoryTitle>
-            <Link to="/">{storyNumber ?storyNumber +'. '+ story.title : story.title}</Link>
+          <Link to="/">
+            {storyNumber ? storyNumber + ". " + story.title : story.title}
+          </Link>
         </StoryTitle>
         <StoryBody>
           <StoryBodyElement>{story.score} points</StoryBodyElement>
@@ -29,13 +31,15 @@ const Story = ({ storyId,storyNumber })=> {
           </StoryBodyElement>
           <StoryBodyElement>{mapTime(story.time)} ago</StoryBodyElement>
           <StoryBodyElement>
-            <Link to={`/comments/${story.id}`}> {story.kids && story.kids.length} comments </Link>
+            <Link to={`/comments/${story.id}`}>
+              {" "}
+              {story.kids && story.kids.length} comments{" "}
+            </Link>
           </StoryBodyElement>
         </StoryBody>
       </StoryWrapper>
     </>
   ) : null;
-}
-
+};
 
 export default memo(Story);

@@ -20,7 +20,7 @@ export const CommentBodyElement = styled.span`
   margin: 0 8px 0 0;
   font-size: 10px;
   color: #90a4ae;
-  a{
+  a {
     color: #90a4ae;
   }
 `;
