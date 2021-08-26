@@ -6,7 +6,7 @@ import {
   StoriesContainerWrapper,
   MoreButton,
 } from "../styles/StoriesContainerStyles";
-import { GlobalStyle } from "../styles/GlobalStyles";
+
 
 export const StoriesContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
@@ -18,7 +18,6 @@ export const StoriesContainer = () => {
 
   return (
     <>
-      <GlobalStyle />
       <StoriesContainerWrapper>
         <StoriesContainerTitle>Hacker News</StoriesContainerTitle>
         {storyIds.slice(count.start, count.last).map((storyId, index) => (
